@@ -44,12 +44,12 @@ III. Usage
 at the end. (vim did not recognize the file with the .syntax at the end;
 perhaps some option may be set to take care of this issue.)
 
-    4. copy m2.vim.plugin as $HOME/.vim/plugin/m2.vim  and as 
-$HOME/.vim/ftplugin/m2.vim, without the .plugin at the end. (vim did not
-recognize the file with the .plugin at the end; perhaps some option may be
-set to take care of this issue. Further, depending on whether the filetype
-detection and plugin options are ON, the file inside the ftplugin
-directory might not be read.)
+    4. copy m2.vim.ftplugin_macos as $HOME/.vim/plugin/m2.vim  and as 
+$HOME/.vim/ftplugin/m2.vim, without the .ftplugin_macos at the end. (vim
+did not recognize the file with the .plugin at the end; perhaps some
+option may be set to take care of this issue. Further, depending on
+whether the filetype detection and plugin options are ON, the file
+inside the ftplugin directory might not be read.)
 
     5. copy VimM2.scpt as $HOME/local/Applications/VimM2.scpt
 
