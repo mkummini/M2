@@ -12,38 +12,33 @@ I. Required programmes
 
 II. Files included 
 
-    0. 0README_linux  (this file)
+    0. README_linux  (this file)
     
-    1. m2.vimrc (the RC file that sets the file-type, loads the dictionary
-file and the syntax file, etc.) 
-
-    2. m2.vim.dict (vim dictionary file, used for completion and
+    1. m2.vim.dict (vim dictionary file, used for completion and
 spell-check)
 
-    3. m2.vim.syntax (instructions on how the various types of words are to
+    2. m2.vim.syntax (instructions on how the various types of words are to
 be highlighted)
 
-    4. m2.vim.plugin (the main file that implements how M2 commands from
-the vim window is transferred to M2 running inside a screen session)
-
-    5. VimM2.scpt (wrapper Apple script around Terminal.app to start the M2
-session inside a screen session)
+    3. m2.vim.ftplugin_linux (the main file that implements how M2
+commands from the vim window is transferred to M2 running inside a
+screen session)
 
 III. Usage
 
-    1. copy m2.vimrc as $HOME/.vim/m2.vimrc, and source it from $HOME/.vimrc, preferably with
+    1. Add the following line to $HOME/.vimrc, to set the filetype
 
-    au BufRead, BufNewFile *.m2 so $HOME/.vim/m2.vimrc
+        au BufNewFile,BufRead *.m2 set filetype=m2
+
+    2. Ensure that syntax highlighting is enabled and filetype plugins
+    are read by adding the following lines to $HOME/.vimrc
+    
+        syntax enable
+        filetype plugin indent on
 
     2. copy m2.vim.dict as $HOME/.vim/dict/m2.vim.dict 
 
     3. copy m2.vim.syntax as $HOME/.vim/syntax/m2.vim, without the .syntax
-at the end. (vim did not recognize the file with the .syntax at the end;
-perhaps some option may be set to take care of this issue.)
+at the end. 
 
-    4. copy m2.vim.plugin as $HOME/.vim/plugin/m2.vim  and as 
-$HOME/.vim/ftplugin/m2.vim, without the .plugin at the end. (vim did not
-recognize the file with the .plugin at the end; perhaps some option may be
-set to take care of this issue. Further, depending on whether the filetype
-detection and plugin options are ON, the file inside the ftplugin
-directory might not be read.)
+    4. copy m2.vim.ftplugin_linux as $HOME/.vim/ftplugin/m2.vim

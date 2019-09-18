@@ -9,7 +9,12 @@
 " Screen Session name
 "let b:screens = printf("vim-M2-plugin-%s", localtime())
 let b:screens ="vim-M2-plugin"
+
+
 " Terminal geometry (WxH+X+Y)
+" By default, this is ignored, and an xterm of default size is opened.
+" However, the command to enable this feature is given in the comments
+" Uncomment it if you would like.
 let b:termgeom="75x28+0-0"
 
 " Add Commands
@@ -20,9 +25,9 @@ command! -nargs=1 -complete=shellcmd M2SendString :call M2SendString(<args>)
 command! -nargs=0 -complete=shellcmd M2SendBuffer :call M2SendBuffer()
 command! -nargs=0 -range -complete=shellcmd M2Send :call M2Send(<line1>,<line2>)
 
-runtime! $VIMRUNTIME/syntax/Macaulay2.vim
+runtime! $VIMRUNTIME/syntax/m2.vim
 set cpt+=k
-set dict+=~/.vim/dict/Macaulay2.vim.dict
+set dict+=~/.vim/dict/m2.vim.dict
 
 " For David Cook's macros.
 noremap <F12> :M2Start<CR> 
@@ -70,7 +75,11 @@ endif
 
 " Load M2 in a new terminal, named with b:screens
 function! M2Start()
+    " If you would like a specific xterm size and position, comment out
+    " the line below and uncomment the next let command that has the
+    " -geometry parameter.
     let cmd = printf ("xterm  -title vim-M2 -e 'screen -d -RR -S %s M2' &",  b:screens)
+    "let cmd = printf ("xterm -geometry %s -title vim-M2 -e 'screen -d -RR -S %s M2' &", b:termgeom, b:screens)
 
     let log = system(cmd)
     if v:shell_error
